@@ -78,7 +78,7 @@ const Contact = () => {
               <div className="contact-icon">📧</div>
               <div className="contact-text">
                 <h4>Email</h4>
-                <p>johndoe@example.com</p>
+                <p>sanatan.bramhane@outlook.com</p>
               </div>
             </div>
             
@@ -86,7 +86,7 @@ const Contact = () => {
               <div className="contact-icon">📱</div>
               <div className="contact-text">
                 <h4>Phone</h4>
-                <p>+1 (123) 456-7890</p>
+                <p>+919028804850</p>
               </div>
             </div>
             
@@ -94,15 +94,15 @@ const Contact = () => {
               <div className="contact-icon">📍</div>
               <div className="contact-text">
                 <h4>Location</h4>
-                <p>San Francisco, CA</p>
+                <p>Pune, Maharashtra</p>
               </div>
             </div>
           </div>
           
           <div className="social-links">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="social-link">GitHub</a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link">LinkedIn</a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-link">Twitter</a>
+            <a href="https://github.com/Sanatan07" target="_blank" rel="noopener noreferrer" className="social-link">GitHub</a>
+            <a href="https://linkedin.com/in/sanatanbramhane" target="_blank" rel="noopener noreferrer" className="social-link">LinkedIn</a>
+            {/* <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-link">Twitter</a> */}
           </div>
         </div>
         

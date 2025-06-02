@@ -26,36 +26,25 @@ const Education = () => {
 
   const educationData = [
     {
-      degree: 'Master of Science in Computer Science',
-      institution: 'Stanford University',
-      location: 'Stanford, CA',
-      period: '2018 - 2020',
-      description: 'Specialized in Human-Computer Interaction and Artificial Intelligence. Thesis focused on interactive 3D visualization techniques for data analysis.',
+      degree: 'B.E in Mechanical Engineering',
+      institution: 'Indira College of Engineering and Management',
+      location: 'Pune, Maharashtra',
+      period: '2019 - 2023',
     },
     {
-      degree: 'Bachelor of Science in Software Engineering',
-      institution: 'University of California',
-      location: 'Berkeley, CA',
-      period: '2014 - 2018',
-      description: 'Graduated with honors. Coursework included Data Structures, Algorithms, Web Development, and Database Systems.',
+      degree: 'PGD in Cyber Security and Digital Forensics',
+      institution: 'CDAC',
+      location: 'Thiruvananthapuram, Kerala',
+      period: '2023 - 2024',
+      description: 'Specialized in and Vulnerability Assessment and Penetration Testing (VAPT), and Secure Software Development.',
     },
   ];
 
   const certificationData = [
     {
-      title: 'Advanced React and Redux',
-      issuer: 'Udemy',
-      date: 'May 2022',
-    },
-    {
-      title: 'Three.js Journey',
-      issuer: 'Bruno Simon',
-      date: 'January 2023',
-    },
-    {
-      title: 'Full Stack Web Development',
-      issuer: 'Coursera',
-      date: 'August 2021',
+      title: 'Certified Penetration Testing Professional (CPENT)',
+      issuer: 'Ec-Council',
+      date: 'OnGoing',
     },
   ];
 
