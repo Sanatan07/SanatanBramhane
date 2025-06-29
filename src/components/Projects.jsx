@@ -61,29 +61,29 @@ const Projects = () => {
     : projects.filter(project => project.category === filter);
 
   return (
-    <div className="section-container" ref={projectsRef}>
-      <h2 className="section-title">Projects</h2>
+    // <div className="section-container" ref={projectsRef}>
+    //   <h2 className="section-title">Projects</h2>
       
-      <div className="project-filters">
-        <button 
-          className={filter === 'all' ? 'active' : ''} 
-          onClick={() => setFilter('all')}
-        >
-          All
-        </button>
-        <button 
-          className={filter === 'web' ? 'active' : ''} 
-          onClick={() => setFilter('web')}
-        >
-          Web
-        </button>
-        <button 
-          className={filter === 'fullstack' ? 'active' : ''} 
-          onClick={() => setFilter('fullstack')}
-        >
-          Fullstack
-        </button>
-      </div>
+    //   <div className="project-filters">
+    //     <button 
+    //       className={filter === 'all' ? 'active' : ''} 
+    //       onClick={() => setFilter('all')}
+    //     >
+    //       All
+    //     </button>
+    //     <button 
+    //       className={filter === 'web' ? 'active' : ''} 
+    //       onClick={() => setFilter('web')}
+    //     >
+    //       Web
+    //     </button>
+    //     <button 
+    //       className={filter === 'fullstack' ? 'active' : ''} 
+    //       onClick={() => setFilter('fullstack')}
+    //     >
+    //       Fullstack
+    //     </button>
+    //   </div>
       
       <div className="projects-grid">
         {filteredProjects.map((project) => (
