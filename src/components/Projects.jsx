@@ -83,18 +83,6 @@ const Projects = () => {
         >
           Fullstack
         </button>
-        <button 
-          className={filter === 'mobile' ? 'active' : ''} 
-          onClick={() => setFilter('mobile')}
-        >
-          Mobile
-        </button>
-        <button 
-          className={filter === 'ar' ? 'active' : ''} 
-          onClick={() => setFilter('ar')}
-        >
-          AR/VR
-        </button>
       </div>
       
       <div className="projects-grid">
