@@ -26,9 +26,6 @@ const Footer = () => {
         </div>
       </div>
       
-      <div className="footer-bottom">
-        <p>&copy; {currentYear} John Doe. All Rights Reserved.</p>
-      </div>
     </footer>
   );
 };
