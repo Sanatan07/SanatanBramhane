@@ -61,6 +61,7 @@ const Projects = () => {
     : projects.filter(project => project.category === filter);
 
   return (
+    
     // <div className="section-container" ref={projectsRef}>
     //   <h2 className="section-title">Projects</h2>
       
