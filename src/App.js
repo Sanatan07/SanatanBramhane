@@ -5,15 +5,14 @@ import { OrbitControls, Stars } from '@react-three/drei';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
-// import Skills from './components/Skills';
+import Skills from './components/Skills';
+import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Loading from './components/Loading';
 import FloatingParticles from './components/FloatingParticles';
-// import Techstack from './components/Techstack';
-// import Toolstack from './components/Toolstack';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -98,18 +97,18 @@ const App = () => {
             <About />
           </section>
           
-          {/* <section id="">
-            <Techstack />
-          </section>
-
-          <section id="">
-            <Toolstack />
-          </section> */}
-          
           <section id="projects">
             <Projects />
           </section>
+
+          <section id="skills">
+            <Skills />
+          </section>
           
+          <section id="experience">
+            <Experience />
+          </section>
+
           <section id="education">
             <Education />
           </section>
