@@ -42,6 +42,14 @@ const Education = () => {
 
   const certificationData = [
     {
+      title: 'Fundamentals of Devsecops',
+      issuer: 'Tutorialspoint',
+    },
+    {
+      title: 'Ultimate Devsecops with Real World Scenarios',
+      issuer: 'Tutorialspoint',
+    },
+    {
       title: 'Certified Penetration Testing Professional (CPENT)',
       issuer: 'Ec-Council',
       date: 'OnGoing',

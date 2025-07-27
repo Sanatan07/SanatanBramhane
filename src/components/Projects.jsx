@@ -29,7 +29,8 @@ const Projects = () => {
     {
       id: 1,
       title: 'VAPT',
-      description: 'Performed Vulnerability Assessment and Penetration Testing on a web application, identifying security flaws and providing remediation strategies.',
+      description:
+        'Performed Vulnerability Assessment and Penetration Testing on a web application, identifying security flaws and providing remediation strategies.',
       image: 'project1.jpg',
       technologies: ['Nmap', 'Burpsuite', 'Nessus'],
       category: 'web',
@@ -37,7 +38,8 @@ const Projects = () => {
     {
       id: 2,
       title: 'Market360',
-      description: 'The Market 360 is a secure MERN-stack dropshipping app that safeguards user data while streamlining deal discovery, business automation, and affiliate marketing.',
+      description:
+        'The Market 360 is a secure MERN-stack dropshipping app that safeguards user data while streamlining deal discovery, business automation, and affiliate marketing.',
       image: 'project2.jpg',
       technologies: ['React', 'Node.js', 'MongoDB', 'Secure Coding'],
       category: 'fullstack',
@@ -56,47 +58,34 @@ const Projects = () => {
     },
   ];
 
-  const filteredProjects = filter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === filter);
+  const filteredProjects =
+    filter === 'all' ? projects : projects.filter((project) => project.category === filter);
 
   return (
     <div className="section-container" ref={projectsRef}>
       <h2 className="section-title">Projects</h2>
-      
+
       <div className="project-filters">
-        <button 
-          className={filter === 'all' ? 'active' : ''} 
+        <button
+          className={filter === 'all' ? 'active' : ''}
           onClick={() => setFilter('all')}
         >
           All
         </button>
-        <button 
-          className={filter === 'web' ? 'active' : ''} 
+        <button
+          className={filter === 'web' ? 'active' : ''}
           onClick={() => setFilter('web')}
         >
           Web
         </button>
-        <button 
-          className={filter === 'fullstack' ? 'active' : ''} 
+        <button
+          className={filter === 'fullstack' ? 'active' : ''}
           onClick={() => setFilter('fullstack')}
         >
           Fullstack
         </button>
-        <button 
-          className={filter === 'mobile' ? 'active' : ''} 
-          onClick={() => setFilter('mobile')}
-        >
-          Mobile
-        </button>
-        <button 
-          className={filter === 'ar' ? 'active' : ''} 
-          onClick={() => setFilter('ar')}
-        >
-          AR/VR
-        </button>
       </div>
-      
+
       <div className="projects-grid">
         {filteredProjects.map((project) => (
           <div key={project.id} className="project-card">
@@ -104,22 +93,39 @@ const Projects = () => {
               <div className="image-placeholder">
                 <span>{project.title.substring(0, 2)}</span>
               </div>
+              {/* If you want to use real images, replace the placeholder with <img src={project.image} alt={project.title} /> */}
             </div>
             <div className="project-content">
               <h3 className="project-title">{project.title}</h3>
               <p className="project-description">{project.description}</p>
               <div className="project-tech">
                 {project.technologies.map((tech, index) => (
-                  <span key={index} className="tech-tag">{tech}</span>
+                  <span key={index} className="tech-tag">
+                    {tech}
+                  </span>
                 ))}
               </div>
               <div className="project-links">
-                <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link">
-                  <i className="github-icon"></i> Code
-                </a>
-                <a href={project.live} target="_blank" rel="noopener noreferrer" className="project-link">
-                  <i className="live-icon"></i> Live Demo
-                </a>
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link"
+                  >
+                    <i className="github-icon"></i> Code
+                  </a>
+                )}
+                {project.live && (
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link"
+                  >
+                    <i className="live-icon"></i> Live Demo
+                  </a>
+                )}
               </div>
             </div>
           </div>
