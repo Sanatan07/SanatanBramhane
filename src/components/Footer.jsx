@@ -180,15 +180,16 @@ const Footer = () => {
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
+            <a href='#experience'>Experience</a>
             <a href="#projects">Projects</a>
             <a href="#education">Education</a>
             <a href="#contact">Contact</a>
           </div>
           
           <div className="footer-social footer-social-links">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="social-icon footer-social-icon">GitHub</a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-icon footer-social-icon">LinkedIn</a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon footer-social-icon">Twitter</a>
+            <a href="https://github.com/Sanatan07" target="_blank" rel="noopener noreferrer" className="social-icon footer-social-icon">GitHub</a>
+            <a href="https://www.linkedin.com/in/sanatanbramhane/" target="_blank" rel="noopener noreferrer" className="social-icon footer-social-icon">LinkedIn</a>
+            <a href="https://x.com/Sanatan781" target="_blank" rel="noopener noreferrer" className="social-icon footer-social-icon">Twitter</a>
           </div>
         </div>
         
