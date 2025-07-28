@@ -205,7 +205,7 @@
 import React from 'react';
 import { Calendar, MapPin, ExternalLink } from 'lucide-react';
 
-const ExperienceComponent = () => {
+const Experience = () => {
   // Full-time experiences
   const fullTimeExperiences = [
     {
@@ -591,4 +591,4 @@ const ExperienceComponent = () => {
   );
 };
 
-export default ExperienceComponent;
+export default Experience;
