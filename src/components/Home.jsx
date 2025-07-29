@@ -395,8 +395,7 @@ const Home = () => {
               />
             </div>
             <p className="description">
-              Infosec professional skilled in secure application development, penetration testing, and vulnerability assessment. Proficient in Linux, Networking, Encryption/Decryption, TCP/IP, SSL/TLS applies security best practices to web and
-              mobile applications. Experienced in web security, cryptographic analysis, OSINT, and DevSecOps, uses Burp Suite, Metasploit, OWASP ZAP, Nmap, and Python to build and test high-performing, secure applications
+              Hi, I’m Sanatan — part software engineer, part digital locksmith. I don’t just write code; I poke at its weak spots, lock the doors, and set digital traps for bugs. Whether I’m securing APIs or outfragging opponents in Valorant, I live for challenges that require sharp thinking and sharper tools. If it’s broken, I’ll fix it — or exploit it first, just to be sure.
             </p>
             <div className="button-container">
               <a href="#contact" className="primary-button">Get In Touch</a>
