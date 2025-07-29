@@ -35,7 +35,6 @@
 //         { name: 'Express', level: 75 },
 //         { name: 'MongoDB', level: 70 },
 //         { name: 'MySQL', level: 65 },
-//         { name: 'Firebase', level: 60 },
 //         { name: 'Python', level: 75 }, 
 //       ],
 //     },
@@ -398,6 +397,9 @@ const Skills = () => {
   // Icon mapping for skills
   const getSkillIcon = (skillName) => {
     const iconMap = {
+      'Kali Linux': <Terminal className="w-6 h-6" />,
+      'Ubuntu': <Terminal className="w-6 h-6" />,
+      'Windows Server Admin': <Monitor className="w-6 h-6" />,
       'React': <Code className="w-6 h-6" />,
       'JavaScript': <FileCode className="w-6 h-6" />,
       'HTML/CSS': <Globe className="w-6 h-6" />,
@@ -405,15 +407,11 @@ const Skills = () => {
       'Express': <Zap className="w-6 h-6" />,
       'MongoDB': <Database className="w-6 h-6" />,
       'MySQL': <Database className="w-6 h-6" />,
-      'Firebase': <Cloud className="w-6 h-6" />,
       'Python': <Code className="w-6 h-6" />,
       'Docker': <Settings className="w-6 h-6" />,
       'Kubernetes': <Cloud className="w-6 h-6" />,
       'CI/CD': <Settings className="w-6 h-6" />,
       'AWS': <Cloud className="w-6 h-6" />,
-      'Kali Linux': <Terminal className="w-6 h-6" />,
-      'Ubuntu': <Terminal className="w-6 h-6" />,
-      'Windows Server Admin': <Monitor className="w-6 h-6" />,
       'Nmap': <Search className="w-6 h-6" />,
       'Hping3': <Zap className="w-6 h-6" />,
       'Metasploit': <Bug className="w-6 h-6" />,
@@ -440,7 +438,6 @@ const Skills = () => {
         { name: 'Express' },
         { name: 'MongoDB' },
         { name: 'MySQL' },
-        { name: 'Firebase' },
         { name: 'Python' }, 
       ],
     },
@@ -640,7 +637,7 @@ const Skills = () => {
       <style>{customStyles}</style>
       <div className="skills-section">
         <div className="section-container" ref={skillsRef}>
-          <h2 className="section-title">Skills & Expertise</h2>
+          <h2 className="section-title">Skills</h2>
           <div className="skills-grid">
             {skillsData.flatMap(category => category.skills).map((skill, skillIndex) => (
               <div key={skillIndex} className="skill-item">

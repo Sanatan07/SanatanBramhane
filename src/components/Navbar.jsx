@@ -297,7 +297,7 @@ const Navbar = ({ currentSection, handleNavigation }) => {
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <div className="navbar-container">
           <div className="navbar-logo" onClick={() => handleNavigation('home')}>
-            <span className="logo-text">DevPortfolio</span>
+            <span className="logo-text">DevSecureX</span>
           </div>
           
           <div className="menu-icon" onClick={toggleMenu}>
