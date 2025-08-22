@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-const Navbar = ({ currentSection, handleNavigation }) => {
+const Navbar = ({ handleNavigation }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [currentSection, setCurrentSection] = useState('home');
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -14,9 +15,43 @@ const Navbar = ({ currentSection, handleNavigation }) => {
       if (isScrolled !== scrolled) {
         setScrolled(isScrolled);
       }
+
+      // Get all sections
+      const sections = navItems.map(item => document.getElementById(item.id));
+      const scrollPosition = window.scrollY + window.innerHeight / 3; // Offset for better detection
+
+      // Find the current section
+      let current = 'home';
+      
+      sections.forEach((section, index) => {
+        if (section) {
+          const sectionTop = section.offsetTop;
+          const sectionBottom = sectionTop + section.offsetHeight;
+          
+          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+            current = navItems[index].id;
+          }
+        }
+      });
+
+      // Special case for the last section (contact) when at bottom of page
+      const documentHeight = document.documentElement.scrollHeight;
+      const windowHeight = window.innerHeight;
+      const scrollTop = window.scrollY;
+      
+      if (scrollTop + windowHeight >= documentHeight - 10) {
+        current = 'contact';
+      }
+
+      setCurrentSection(current);
     };
 
+    // Add scroll event listener
     window.addEventListener('scroll', handleScroll);
+    
+    // Initial call to set the current section
+    handleScroll();
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -25,9 +60,9 @@ const Navbar = ({ currentSection, handleNavigation }) => {
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
+    { id: 'projects', label: 'Projects' },
     { id: 'skills', label: 'Skills' },
     { id: 'experience', label: 'Experience' },
-    { id: 'projects', label: 'Projects' },
     { id: 'education', label: 'Education' },
     { id: 'contact', label: 'Contact' },
   ];

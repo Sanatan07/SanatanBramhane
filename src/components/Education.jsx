@@ -154,7 +154,7 @@ const Education = () => {
     {
       title: 'Certified Penetration Testing Professional (CPENT)',
       issuer: 'Ec-Council',
-      date: 'OnGoing',
+      date: '19 Aug 2025 - 1 Sept 2026',
     },
   ];
 

@@ -9,7 +9,7 @@ const Experience = () => {
       title: "Technical Support Engineer",
       company: "Saiyash Technologies Pvt Ltd",
       location: "Pune, Maharashtra",
-      duration: "Jun 2026 - Present",
+      duration: "Jun 2025 - Present",
       type: "Full-time",
       description: [
         "Manage Active Directory by adding/removing users, resetting passwords, assigning group permissions, and joining new systems to the Domain Controller.",
