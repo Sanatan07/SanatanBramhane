@@ -287,8 +287,8 @@ const Footer = () => {
             <a href="https://github.com/Sanatan07" target="_blank" rel="noopener noreferrer" className="social-icon footer-social-icon">GitHub</a>
             <a href="https://www.linkedin.com/in/sanatanbramhane/" target="_blank" rel="noopener noreferrer" className="social-icon footer-social-icon">LinkedIn</a>
             <a href="https://x.com/Sanatan781" target="_blank" rel="noopener noreferrer" className="social-icon footer-social-icon">Twitter</a>
-            <a href="https://x.com/Sanatan781" target="_blank" rel="noopener noreferrer" className="social-icon footer-social-icon">HackerRank</a>
-            <a href="https://x.com/Sanatan781" target="_blank" rel="noopener noreferrer" className="social-icon footer-social-icon">TryHackMe</a>
+            <a href="https://www.hackerrank.com/profile/sanatan_bramhane" target="_blank" rel="noopener noreferrer" className="social-icon footer-social-icon">HackerRank</a>
+            <a href="https://tryhackme.com/p/Sanatan" target="_blank" rel="noopener noreferrer" className="social-icon footer-social-icon">TryHackMe</a>
           </div>
         </div>
         
