@@ -1,5 +1,5 @@
 // import React, { useRef, useEffect, useState } from 'react';
-// import { Github, ExternalLink } from 'lucide-react';
+// import { Github, ExternalLink, Shield, Globe, User, Search, Lock, Code } from 'lucide-react';
 
 // const Projects = () => {
 //   const projectsRef = useRef(null);
@@ -26,15 +26,52 @@
 //     };
 //   }, []);
 
+//   // Function to generate project-specific visual elements
+//   const getProjectVisual = (projectTitle) => {
+//     switch (projectTitle) {
+//       case 'VAPT':
+//         return {
+//           gradient: 'linear-gradient(135deg, #ef4444, #dc2626, #991b1b)',
+//           icons: [Shield, Lock, Search],
+//           pattern: 'security'
+//         };
+//       case 'Web VAPT':
+//         return {
+//           gradient: 'linear-gradient(135deg, #3057d9ff, #3057d9ff, #3057d9ff)',
+//           icons: [Lock, Shield, Search],
+//           pattern: 'security'
+//         };
+//       case 'Market360':
+//         return {
+//           gradient: 'linear-gradient(135deg, #10b981, #059669, #047857)',
+//           icons: [Globe, Code, User],
+//           pattern: 'market'
+//         };
+//       case 'Portfolio Website':
+//         return {
+//           gradient: 'linear-gradient(135deg, #8b5cf6, #7c3aed, #6d28d9)',
+//           icons: [User, Code, Globe],
+//           pattern: 'portfolio'
+//         };
+//       default:
+//         return {
+//           gradient: 'linear-gradient(135deg, #60a5fa, #8c9eff)',
+//           icons: [Code],
+//           pattern: 'default'
+//         };
+//     }
+//   };
+
 //   const projects = [
 //     {
 //       id: 1,
-//       title: 'VAPT',
-//       description:
-//         'Performed Vulnerability Assessment and Penetration Testing on a web application, identifying security flaws and providing remediation strategies.',
-//       image: 'project1.jpg',
-//       technologies: ['Nmap', 'Burpsuite', 'Nessus'],
+//       title: 'Portfolio Website',
+//       description: 'Interactive developer portfolio with 3D elements and animations.',
+//       image: 'project6.jpg',
+//       technologies: ['React', 'Nodejs'],
 //       category: 'web',
+//       github: 'https://github.com/Sanatan07/SanatanBramhane',
+//       live: 'https://sanatanbramhane.vercel.app/',
 //     },
 //     {
 //       id: 2,
@@ -48,14 +85,24 @@
 //     },
 //     {
 //       id: 3,
-//       title: 'Portfolio Website',
-//       description: 'Interactive developer portfolio with 3D elements and animations.',
-//       image: 'project6.jpg',
-//       technologies: ['React', 'Nodejs'],
-//       category: 'web',
-//       github: 'https://github.com/Sanatan07/SanatanBramhane',
-//       live: 'https://sanatanbramhane.vercel.app/',
+//       title: 'Web App Pentesting on Unstop.comVAPT',
+//       description:
+//         'Performed Vulnerability Assessment and Penetration Testing on a unstop.com, identifying security flaws and providing remediation strategies.',
+//       image: 'project1.jpg',
+//       technologies: ['Nmap', 'Burpsuite', 'Nessus'],
+//       category: 'VAPT',
 //     },
+//     {
+//       id: 4,
+//       title: 'Web Application Pentesting on DVWA',
+//       description:
+//         'Performed Vulnerability Assessment and Penetration Testing on a DVWA, identifying security flaws and providing remediation strategies.',
+//       image: 'project1.jpg',
+//       technologies: ['Burpsuite', 'SQLi', 'XSS','Command Execution',],
+//       category: 'VAPT',
+//       report: 'https://shorturl.at/ofQxk'
+//     },
+    
 //   ];
 
 //   const filteredProjects =
@@ -178,37 +225,97 @@
 //       height: 200px;
 //       overflow: hidden;
 //       position: relative;
-//       background: linear-gradient(135deg, rgba(96, 165, 250, 0.1), rgba(140, 158, 255, 0.1));
 //     }
     
-//     .image-placeholder {
+//     .project-visual {
 //       width: 100%;
 //       height: 100%;
-//       border-radius: 0;
-//       background: linear-gradient(135deg, #60a5fa, #8c9eff);
 //       display: flex;
 //       justify-content: center;
 //       align-items: center;
-//       font-size: 3rem;
-//       font-weight: 800;
-//       color: #ffffff;
 //       position: relative;
 //       overflow: hidden;
 //     }
     
-//     .image-placeholder::before {
+//     .security-pattern {
+//       background: linear-gradient(135deg, #ef4444, #dc2626, #991b1b);
+//     }
+    
+//     .security-pattern::before {
 //       content: '';
 //       position: absolute;
 //       top: 0;
-//       left: -100%;
-//       width: 100%;
-//       height: 100%;
-//       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-//       transition: left 0.5s;
+//       left: 0;
+//       right: 0;
+//       bottom: 0;
+//       background-image: 
+//         radial-gradient(circle at 20% 20%, rgba(255,255,255,0.1) 2px, transparent 2px),
+//         radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 2px, transparent 2px),
+//         radial-gradient(circle at 40% 60%, rgba(255,255,255,0.1) 1px, transparent 1px);
+//       background-size: 30px 30px, 40px 40px, 20px 20px;
+//       animation: float 6s ease-in-out infinite;
 //     }
     
-//     .project-card:hover .image-placeholder::before {
-//       left: 100%;
+//     .market-pattern {
+//       background: linear-gradient(135deg, #10b981, #059669, #047857);
+//     }
+    
+//     .market-pattern::before {
+//       content: '';
+//       position: absolute;
+//       top: 0;
+//       left: 0;
+//       right: 0;
+//       bottom: 0;
+//       background-image: 
+//         linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%),
+//         linear-gradient(-45deg, rgba(255,255,255,0.1) 25%, transparent 25%),
+//         linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.1) 75%),
+//         linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.1) 75%);
+//       background-size: 20px 20px;
+//       background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+//       animation: slide 8s linear infinite;
+//     }
+    
+//     .portfolio-pattern {
+//       background: linear-gradient(135deg, #8b5cf6, #7c3aed, #6d28d9);
+//     }
+    
+//     .portfolio-pattern::before {
+//       content: '';
+//       position: absolute;
+//       top: 0;
+//       left: 0;
+//       right: 0;
+//       bottom: 0;
+//       background-image: 
+//         radial-gradient(circle at 25% 25%, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 50%, transparent 50%),
+//         radial-gradient(circle at 75% 75%, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 50%, transparent 50%);
+//       background-size: 50px 50px;
+//       animation: pulse 4s ease-in-out infinite;
+//     }
+    
+//     .project-icons {
+//       display: flex;
+//       gap: 1rem;
+//       z-index: 2;
+//       position: relative;
+//     }
+    
+//     .project-icon {
+//       width: 2.5rem;
+//       height: 2.5rem;
+//       color: rgba(255, 255, 255, 0.9);
+//       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+//       animation: bounce 2s ease-in-out infinite;
+//     }
+    
+//     .project-icon:nth-child(2) {
+//       animation-delay: 0.2s;
+//     }
+    
+//     .project-icon:nth-child(3) {
+//       animation-delay: 0.4s;
 //     }
     
 //     .project-content {
@@ -304,6 +411,27 @@
 //       height: 1rem;
 //     }
     
+//     @keyframes float {
+//       0%, 100% { transform: translateY(0px); }
+//       50% { transform: translateY(-10px); }
+//     }
+    
+//     @keyframes slide {
+//       0% { background-position: 0 0, 0 10px, 10px -10px, -10px 0px; }
+//       100% { background-position: 20px 20px, 20px 30px, 30px 10px, 10px 20px; }
+//     }
+    
+//     @keyframes pulse {
+//       0%, 100% { opacity: 1; transform: scale(1); }
+//       50% { opacity: 0.8; transform: scale(1.05); }
+//     }
+    
+//     @keyframes bounce {
+//       0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+//       40% { transform: translateY(-10px); }
+//       60% { transform: translateY(-5px); }
+//     }
+    
 //     /* Responsive Design */
 //     @media screen and (max-width: 768px) {
 //       .projects-section {
@@ -344,6 +472,11 @@
 //         justify-content: center;
 //         text-align: center;
 //       }
+      
+//       .project-icon {
+//         width: 2rem;
+//         height: 2rem;
+//       }
 //     }
     
 //     @media screen and (max-width: 480px) {
@@ -367,8 +500,9 @@
 //         font-size: 0.9rem;
 //       }
       
-//       .image-placeholder {
-//         font-size: 2.5rem;
+//       .project-icon {
+//         width: 1.8rem;
+//         height: 1.8rem;
 //       }
 //     }
     
@@ -405,51 +539,66 @@
 //             >
 //               Fullstack
 //             </button>
+//             <button
+//               className={filter === 'vapt' ? 'active' : ''}
+//               onClick={() => setFilter('vapt')}
+//             >
+//               VAPT
+//             </button>
 //           </div>
 
 //           <div className="projects-grid">
-//             {filteredProjects.map((project) => (
-//               <div key={project.id} className="project-card">
-//                 <div className="project-image">
-//                   <div className="image-placeholder">
-//                     <span>{project.title.substring(0, 2)}</span>
+//             {filteredProjects.map((project) => {
+//               const visual = getProjectVisual(project.title);
+//               const IconComponents = visual.icons;
+              
+//               return (
+//                 <div key={project.id} className="project-card">
+//                   <div className="project-image">
+//                     <div className={`project-visual ${visual.pattern}-pattern`}>
+//                       <div className="project-icons">
+//                         {IconComponents.map((IconComponent, index) => (
+//                           <IconComponent key={index} className="project-icon" />
+//                         ))}
+//                       </div>
+//                     </div>
+//                   </div>
+//                   <div className="project-content">
+//                     <h3 className="project-title">{project.title}</h3>
+//                     <p className="project-description">{project.description}</p>
+//                     <div className="project-tech">
+//                       {project.technologies.map((tech, index) => (
+//                         <span key={index} className="tech-tag">
+//                           {tech}
+//                         </span>
+//                       ))}
+//                     </div>
+//                     <div className="project-links">
+//                       {project.github && (
+//                         <a
+//                           href={project.github}
+//                           target="_blank"
+//                           rel="noopener noreferrer"
+//                           className="project-link"
+//                         >
+//                           <Github /> Code
+//                         </a>
+//                       )}
+//                       {project.live && (
+//                         <a
+//                           href={project.live}
+//                           target="_blank"
+//                           rel="noopener noreferrer"
+//                           className="project-link"
+//                         >
+//                           <ExternalLink /> Live Demo
+//                         </a>
+//                       )}
+//                     </div>
 //                   </div>
 //                 </div>
-//                 <div className="project-content">
-//                   <h3 className="project-title">{project.title}</h3>
-//                   <p className="project-description">{project.description}</p>
-//                   <div className="project-tech">
-//                     {project.technologies.map((tech, index) => (
-//                       <span key={index} className="tech-tag">
-//                         {tech}
-//                       </span>
-//                     ))}
-//                   </div>
-//                   <div className="project-links">
-//                     {project.github && (
-//                       <a
-//                         href={project.github}
-//                         target="_blank"
-//                         rel="noopener noreferrer"
-//                         className="project-link"
-//                       >
-//                         <Github /> Code
-//                       </a>
-//                     )}
-//                     {project.live && (
-//                       <a
-//                         href={project.live}
-//                         target="_blank"
-//                         rel="noopener noreferrer"
-//                         className="project-link"
-//                       >
-//                         <ExternalLink /> Live Demo
-//                       </a>
-//                     )}
-//                   </div>
-//                 </div>
-//               </div>
-//             ))}
+//               );
+//             })}
 //           </div>
 //         </div>
 //       </div>
@@ -459,9 +608,8 @@
 
 // export default Projects;
 
-
 import React, { useRef, useEffect, useState } from 'react';
-import { Github, ExternalLink, Shield, Globe, User, Search, Lock, Code } from 'lucide-react';
+import { Github, ExternalLink, Shield, Globe, User, Search, Lock, Code, FileText } from 'lucide-react';
 
 const Projects = () => {
   const projectsRef = useRef(null);
@@ -491,7 +639,8 @@ const Projects = () => {
   // Function to generate project-specific visual elements
   const getProjectVisual = (projectTitle) => {
     switch (projectTitle) {
-      case 'VAPT':
+      case 'Web App Pentesting on Unstop.com':
+      case 'Web Application Pentesting on DVWA':
         return {
           gradient: 'linear-gradient(135deg, #ef4444, #dc2626, #991b1b)',
           icons: [Shield, Lock, Search],
@@ -521,12 +670,13 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'VAPT',
-      description:
-        'Performed Vulnerability Assessment and Penetration Testing on a web application, identifying security flaws and providing remediation strategies.',
-      image: 'project1.jpg',
-      technologies: ['Nmap', 'Burpsuite', 'Nessus'],
-      category: 'web',
+      title: 'Portfolio Website',
+      description: 'Interactive developer portfolio with 3D elements and animations.',
+      image: 'project6.jpg',
+      technologies: ['React', 'Nodejs'],
+      category: 'fullstack',
+      github: 'https://github.com/Sanatan07/SanatanBramhane',
+      live: 'https://sanatan-bramhane.vercel.app/',
     },
     {
       id: 2,
@@ -540,13 +690,22 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: 'Portfolio Website',
-      description: 'Interactive developer portfolio with 3D elements and animations.',
-      image: 'project6.jpg',
-      technologies: ['React', 'Nodejs'],
-      category: 'web',
-      github: 'https://github.com/Sanatan07/SanatanBramhane',
-      live: 'https://sanatanbramhane.vercel.app/',
+      title: 'Web App Pentesting on Unstop.com',
+      description:
+        'Performed Vulnerability Assessment and Penetration Testing on unstop.com, identifying security flaws and providing remediation strategies.',
+      image: 'project1.jpg',
+      technologies: ['Nmap', 'Burpsuite', 'Nessus'],
+      category: 'vapt',
+    },
+    {
+      id: 4,
+      title: 'Web Application Pentesting on DVWA',
+      description:
+        'Performed Vulnerability Assessment and Penetration Testing on DVWA (Damn Vulnerable Web Application), identifying security flaws and providing remediation strategies.',
+      image: 'project1.jpg',
+      technologies: ['Burpsuite', 'SQLi', 'XSS', 'Command Execution'],
+      category: 'vapt',
+      report: 'https://shorturl.at/ofQxk'
     },
   ];
 
@@ -973,16 +1132,16 @@ const Projects = () => {
               All
             </button>
             <button
-              className={filter === 'web' ? 'active' : ''}
-              onClick={() => setFilter('web')}
-            >
-              Web
-            </button>
-            <button
               className={filter === 'fullstack' ? 'active' : ''}
               onClick={() => setFilter('fullstack')}
             >
               Fullstack
+            </button>
+            <button
+              className={filter === 'vapt' ? 'active' : ''}
+              onClick={() => setFilter('vapt')}
+            >
+              VAPT
             </button>
           </div>
 
@@ -1031,6 +1190,16 @@ const Projects = () => {
                           className="project-link"
                         >
                           <ExternalLink /> Live Demo
+                        </a>
+                      )}
+                      {project.report && (
+                        <a
+                          href={project.report}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="project-link"
+                        >
+                          <FileText /> Report
                         </a>
                       )}
                     </div>
