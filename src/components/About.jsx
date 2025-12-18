@@ -26,7 +26,7 @@ const About = () => {
   }, []);
 
   const handleResumeClick = () => {
-    window.open('/Sanatan.pdf', '_blank');
+    window.open('/Sanatan-Bramhane.pdf', '_blank');
   };
 
   const customStyles = `
