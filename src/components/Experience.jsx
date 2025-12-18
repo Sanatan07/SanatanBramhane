@@ -4,25 +4,9 @@ import { Calendar, MapPin, ExternalLink } from 'lucide-react';
 const Experience = () => {
   // Full-time experiences
   const fullTimeExperiences = [
+    
     {
       id: 1,
-      title: "Technical Support Engineer",
-      company: "Saiyash Technologies Pvt Ltd",
-      location: "Pune, Maharashtra",
-      duration: "Jun 2025 - Present",
-      type: "Full-time",
-      description: [
-        "Manage Active Directory by adding/removing users, resetting passwords, assigning group permissions, and joining new systems to the Domain Controller.",
-        "Configure and maintain SSL certificates, ensuring secure communication and timely renewals.",
-        "Provide end-user support by troubleshooting Windows and Linux operating systems, including command-line diagnostics.",
-        "Automated the backup process of project files to OneDrive using Python scripting and scheduled cron jobs for regular execution.",
-        "Support and resolve Cisco AnyConnect VPN issues and ensure smooth access for remote users."
-      ],
-      technologies: ["Active Directory", "Domain Controller", "SSL", "VPN", "Windows", "Linux"],
-      website: "#"
-    },
-    {
-      id: 2,
       title: "Secure Software Engineer",
       company: "Tecmetaverse LLP",
       location: "Pune, Maharashtra",
@@ -42,7 +26,7 @@ const Experience = () => {
   // Internship experiences
   const internshipExperiences = [
     {
-      id: 3,
+      id: 2,
       title: "Cybersecurity Engineer Intern",
       company: "Cyient",
       location: "Bengaluru",
@@ -57,7 +41,7 @@ const Experience = () => {
       website: "#"
     },
     {
-      id: 4,
+      id: 3,
       title: "Ethical Hacking Intern",
       company: "Cyberdosti",
       location: "Pune, Maharashtra",
