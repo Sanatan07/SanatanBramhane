@@ -324,9 +324,9 @@ const Home = () => {
             <div className="title">
               <TypeAnimation
                 sequence={[
+                  'Software Engineer', 2000,
                   'Product Security', 2000,
                   'Application Security', 2000,
-                  'Software Engineer', 2000,
                 ]}
                 wrapper="span"
                 speed={50}
