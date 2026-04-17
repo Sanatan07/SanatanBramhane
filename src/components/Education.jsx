@@ -1,289 +1,187 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect, useRef } from "react";
+import { GraduationCap, BadgeCheck } from "lucide-react";
+
+const educationData = [
+  {
+    degree: "PGD in Cyber Security and Digital Forensics",
+    institution: "CDAC",
+    location: "Thiruvananthapuram, Kerala",
+    period: "2023 - 2024",
+    description:
+      "Focused on vulnerability assessment and penetration testing, digital forensics, and secure software development fundamentals.",
+  },
+  {
+    degree: "B.E in Mechanical Engineering",
+    institution: "Indira College of Engineering and Management",
+    location: "Pune, Maharashtra",
+    period: "2019 - 2023",
+    description:
+      "Built the engineering foundation that later evolved into software development and application security work.",
+  },
+];
+
+const certificationData = [
+  {
+    title: "Certified Penetration Testing Professional (CPENT)",
+    issuer: "EC-Council",
+    date: "19 Aug 2025 - 1 Sep 2026",
+  },
+  {
+    title: "Fundamentals of DevSecOps",
+    issuer: "Tutorialspoint",
+  },
+  {
+    title: "Ultimate DevSecOps with Real World Scenarios",
+    issuer: "Tutorialspoint",
+  },
+];
 
 const Education = () => {
   const educationRef = useRef(null);
 
   useEffect(() => {
+    const element = educationRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in');
+          entry.target.classList.add("animate-in");
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
-    if (educationRef.current) {
-      observer.observe(educationRef.current);
+    if (element) {
+      observer.observe(element);
     }
 
     return () => {
-      if (educationRef.current) {
-        observer.unobserve(educationRef.current);
+      if (element) {
+        observer.unobserve(element);
       }
     };
   }, []);
 
-  const educationData = [
-    {
-      degree: 'B.E in Mechanical Engineering',
-      institution: 'Indira College of Engineering and Management',
-      location: 'Pune, Maharashtra',
-      period: '2019 - 2023',
-    },
-    {
-      degree: 'PGD in Cyber Security and Digital Forensics',
-      institution: 'CDAC',
-      location: 'Thiruvananthapuram, Kerala',
-      period: '2023 - 2024',
-      description: 'Specialized in and Vulnerability Assessment and Penetration Testing (VAPT), and Secure Software Development.',
-    },
-  ];
-
-  const certificationData = [
-    {
-      title: 'Fundamentals of Devsecops',
-      issuer: 'Tutorialspoint',
-    },
-    {
-      title: 'Ultimate Devsecops with Real World Scenarios',
-      issuer: 'Tutorialspoint',
-    },
-    {
-      title: 'Certified Penetration Testing Professional (CPENT)',
-      issuer: 'Ec-Council',
-      date: '19 Aug 2025 - 1 Sept 2026',
-    },
-  ];
-
   const customStyles = `
     .education-section {
-      background-color: #111827;
       min-height: 100vh;
-      color: #ffffff;
-      padding: 4rem 1rem;
+      padding: 6rem 1rem;
+      background: linear-gradient(180deg, rgba(4, 12, 10, 0.96), rgba(3, 8, 7, 0.98));
+      color: #f4fff8;
     }
-    
-    .section-container {
+
+    .education-shell {
       max-width: 1200px;
       margin: 0 auto;
       opacity: 0;
       transform: translateY(50px);
       transition: all 0.8s ease;
     }
-    
-    .section-container.animate-in {
+
+    .education-shell.animate-in {
       opacity: 1;
       transform: translateY(0);
     }
-    
-    .section-title {
-      font-size: 2.5rem;
-      margin-bottom: 3rem;
-      position: relative;
-      display: inline-block;
-      color: #ffffff;
-      font-weight: bold;
-      text-align: center;
-      width: 100%;
+
+    .education-kicker {
+      color: #8efdd1;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      margin-bottom: 1rem;
     }
-    
-    .section-title:after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 4px;
-      background: linear-gradient(45deg, #60a5fa, #8c9eff);
-    }
-    
-    .education-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-    }
-    
-    .subsection-title {
-      font-size: 1.8rem;
+
+    .education-title {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
       margin-bottom: 2rem;
-      color: #60a5fa;
-      font-weight: 600;
     }
-    
-    .timeline {
-      position: relative;
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
     }
-    
-    .timeline:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 15px;
-      height: 100%;
-      width: 2px;
-      background: #60a5fa;
-    }
-    
-    .timeline-item {
-      position: relative;
-      padding-left: 45px;
-      margin-bottom: 3rem;
-    }
-    
-    .timeline-marker {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background: #111827;
-      border: 3px solid #60a5fa;
-      z-index: 1;
-    }
-    
-    .timeline-period {
-      display: inline-block;
-      padding: 0.3rem 1rem;
-      background: rgba(96, 165, 250, 0.1);
-      color: #60a5fa;
-      border-radius: 15px;
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-      font-weight: 500;
-    }
-    
-    .timeline-title {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-      color: #ffffff;
-      font-weight: 600;
-    }
-    
-    .timeline-institution {
-      font-size: 1rem;
-      color: #8c9eff;
-      margin-bottom: 1rem;
-      font-weight: 500;
-    }
-    
-    .timeline-description {
-      font-size: 0.9rem;
-      color: #d1d5db;
-      line-height: 1.6;
-    }
-    
-    .certifications-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    
-    .certification-item {
-      display: flex;
-      gap: 1.5rem;
-      background: rgba(31, 41, 55, 0.8);
+
+    .education-panel {
+      border-radius: 1.4rem;
+      border: 1px solid rgba(0, 255, 163, 0.14);
+      background: linear-gradient(180deg, rgba(7, 23, 18, 0.92), rgba(4, 12, 10, 0.96));
       padding: 1.5rem;
-      border-radius: 10px;
-      border: 1px solid #374151;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
     }
-    
-    .certification-item:hover {
-      background: rgba(31, 41, 55, 1);
-      transform: translateX(10px);
-      border-color: rgba(96, 165, 250, 0.3);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    }
-    
-    .certification-icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: linear-gradient(45deg, #60a5fa, #8c9eff);
-      flex-shrink: 0;
+
+    .panel-header {
       display: flex;
       align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .panel-icon {
+      width: 2.8rem;
+      height: 2.8rem;
+      border-radius: 0.9rem;
+      display: inline-flex;
+      align-items: center;
       justify-content: center;
-      position: relative;
+      background: linear-gradient(135deg, #00ffa3, #63d6ff);
+      color: #02110b;
     }
-    
-    .certification-icon:before {
-      content: '🎓';
-      font-size: 1.5rem;
+
+    .panel-title {
+      font-size: 1.15rem;
+      color: #effff7;
+      font-weight: 700;
     }
-    
-    .certification-details {
-      flex: 1;
+
+    .record-list {
+      display: grid;
+      gap: 1rem;
     }
-    
-    .certification-title {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-      color: #ffffff;
-      font-weight: 600;
+
+    .record-card {
+      padding: 1rem;
+      border-radius: 1rem;
+      background: rgba(2, 9, 7, 0.84);
+      border: 1px solid rgba(0, 255, 163, 0.12);
     }
-    
-    .certification-issuer {
-      font-size: 0.9rem;
-      color: #d1d5db;
+
+    .record-period {
+      display: inline-flex;
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(0, 255, 163, 0.1);
+      color: #b9ffdf;
+      border: 1px solid rgba(0, 255, 163, 0.16);
+      font-size: 0.85rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .record-title {
+      color: #effff7;
+      font-size: 1.05rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .record-subtitle {
+      color: #73ffd0;
+      margin-bottom: 0.6rem;
+    }
+
+    .record-description {
+      color: #bfd8ce;
+      line-height: 1.75;
       margin: 0;
     }
-    
-    @media screen and (max-width: 1024px) {
-      .education-content {
+
+    @media screen and (max-width: 900px) {
+      .education-grid {
         grid-template-columns: 1fr;
       }
-      
-      .certification-section {
-        margin-top: 3rem;
-      }
     }
-    
-    @media screen and (max-width: 768px) {
+
+    @media screen and (max-width: 640px) {
       .education-section {
-        padding: 2rem 1rem;
-      }
-      
-      .section-title {
-        font-size: 2rem;
-      }
-      
-      .subsection-title {
-        font-size: 1.5rem;
-      }
-      
-      .education-content {
-        gap: 2rem;
-      }
-    }
-    
-    @media screen and (max-width: 480px) {
-      .timeline-item {
-        padding-left: 35px;
-      }
-      
-      .timeline-marker {
-        width: 20px;
-        height: 20px;
-        left: 5px;
-      }
-      
-      .timeline:before {
-        left: 10px;
-      }
-      
-      .certification-item {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-      }
-      
-      .certification-icon {
-        align-self: center;
+        padding: 5rem 1rem;
       }
     }
   `;
@@ -292,37 +190,45 @@ const Education = () => {
     <>
       <style>{customStyles}</style>
       <div className="education-section">
-        <div className="section-container" ref={educationRef}>
-          <h2 className="section-title">Education & Certifications</h2>
-          
-          <div className="education-content">
-            <div className="education-section-content">
-              <h3 className="subsection-title">Education</h3>
-              <div className="timeline">
-                {educationData.map((item, index) => (
-                  <div key={index} className="timeline-item">
-                    <div className="timeline-marker"></div>
-                    <div className="timeline-content">
-                      <div className="timeline-period">{item.period}</div>
-                      <h4 className="timeline-title">{item.degree}</h4>
-                      <p className="timeline-institution">{item.institution}, {item.location}</p>
-                      {item.description && <p className="timeline-description">{item.description}</p>}
+        <div className="education-shell" ref={educationRef}>
+          <div className="education-kicker">Training / Credentials</div>
+          <h2 className="education-title">Education & Certifications</h2>
+
+          <div className="education-grid">
+            <div className="education-panel">
+              <div className="panel-header">
+                <div className="panel-icon">
+                  <GraduationCap size={18} />
+                </div>
+                <div className="panel-title">Education</div>
+              </div>
+              <div className="record-list">
+                {educationData.map((item) => (
+                  <div key={item.degree} className="record-card">
+                    <div className="record-period">{item.period}</div>
+                    <h3 className="record-title">{item.degree}</h3>
+                    <div className="record-subtitle">
+                      {item.institution}, {item.location}
                     </div>
+                    <p className="record-description">{item.description}</p>
                   </div>
                 ))}
               </div>
             </div>
-            
-            <div className="certification-section">
-              <h3 className="subsection-title">Certifications</h3>
-              <div className="certifications-list">
-                {certificationData.map((item, index) => (
-                  <div key={index} className="certification-item">
-                    <div className="certification-icon"></div>
-                    <div className="certification-details">
-                      <h4 className="certification-title">{item.title}</h4>
-                      <p className="certification-issuer">{item.issuer}{item.date ? ` • ${item.date}` : ''}</p>
-                    </div>
+
+            <div className="education-panel">
+              <div className="panel-header">
+                <div className="panel-icon">
+                  <BadgeCheck size={18} />
+                </div>
+                <div className="panel-title">Certifications</div>
+              </div>
+              <div className="record-list">
+                {certificationData.map((item) => (
+                  <div key={item.title} className="record-card">
+                    {item.date && <div className="record-period">{item.date}</div>}
+                    <h3 className="record-title">{item.title}</h3>
+                    <div className="record-subtitle">{item.issuer}</div>
                   </div>
                 ))}
               </div>

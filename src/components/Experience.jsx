@@ -1,366 +1,354 @@
-import React from 'react';
-import { Calendar, MapPin, ExternalLink } from 'lucide-react';
+import React from "react";
+import { Calendar, MapPin, ShieldCheck, BriefcaseBusiness } from "lucide-react";
+
+const experiences = [
+  {
+    id: 1,
+    type: "Current",
+    title: "Software Developer",
+    company: "Current Role",
+    location: "Pune, Maharashtra",
+    duration: "Present",
+    description: [
+      "Building and maintaining modern web applications across frontend, backend, and API layers with a security-first engineering mindset.",
+      "Working with React.js, Next.js, Node.js, Express.js, REST APIs, SQL, PostgreSQL, MongoDB, and Java to deliver production-ready features.",
+      "Contributing to secure implementation decisions around authentication, input validation, API behavior, and data handling.",
+      "Approaching development with AppSec awareness so functionality, maintainability, and security improve together.",
+    ],
+    technologies: [
+      "React.js",
+      "Next.js",
+      "Node.js",
+      "Express.js",
+      "REST APIs",
+      "SQL",
+      "PostgreSQL",
+      "MongoDB",
+      "Java",
+    ],
+  },
+  {
+    id: 2,
+    type: "Previous",
+    title: "Secure Software Engineer",
+    company: "Tecmetaverse LLP",
+    location: "Pune, Maharashtra",
+    duration: "Nov 2024 - Apr 2025",
+    description: [
+      "Built and deployed websites and internal delivery assets for client engagements, improving turnaround and overall development efficiency.",
+      "Implemented secure software development practices and reduced avoidable security issues during delivery.",
+      "Performed web application VAPT activities and validated issues such as XSS and IDOR before release.",
+      "Developed secure REST APIs and CRM extensions to support sales and support workflows.",
+    ],
+    technologies: ["React.js", "Node.js", "Express.js", "REST APIs", "SQL", "AppSec"],
+  },
+  {
+    id: 3,
+    type: "Internship",
+    title: "Cybersecurity Engineer Intern",
+    company: "Cyient",
+    location: "Bengaluru",
+    duration: "Jul 2024 - Oct 2024",
+    description: [
+      "Contributed to secure coding guidance and compliance-oriented security work for engineering teams.",
+      "Automated Android OS patch identification workflows and supported security research initiatives.",
+      "Built custom tooling around Nmap and remote enumeration to improve penetration testing efficiency.",
+      "Researched rail network security aligned with IEC 62443-oriented requirements.",
+    ],
+    technologies: ["Python", "Nmap", "Linux", "OSINT", "IEC 62443"],
+  },
+  {
+    id: 4,
+    type: "Internship",
+    title: "Ethical Hacking Intern",
+    company: "Cyberdosti",
+    location: "Pune, Maharashtra",
+    duration: "May 2024 - Jul 2024",
+    description: [
+      "Practiced web and network penetration testing on vulnerable lab environments and security training platforms.",
+      "Worked through common attack paths and exploitation scenarios to better understand real-world vulnerability classes.",
+      "Built small Python utilities and strengthened hands-on offensive security fundamentals.",
+    ],
+    technologies: ["OWASP Top 10", "Web Security", "Network Security", "Python", "Linux"],
+  },
+];
 
 const Experience = () => {
-  // Full-time experiences
-  const fullTimeExperiences = [
-    
-    {
-      id: 1,
-      title: "Secure Software Engineer",
-      company: "Tecmetaverse LLP",
-      location: "Pune, Maharashtra",
-      duration: "Nov 2024 - Apr 2025",
-      type: "Full-time",
-      description: [
-        "Developed and deployed 5+ static websites for real estate clients and cafes, improving their online visibility and reducing client turnaround time by 30%.",
-        "Integrated SSDLC practices across a major project, reducing security-related bugs by 60%",
-        "Performed comprehensive Web Application Penetration Testing, identifying and remediating 8+ vulnerabilities including XSS and IDOR, resulting in a more secure release.",
-        "Built 5+ secure RESTful APIs and 1 custom EspoCRM plugins, boosting CRM efficiency and saving ~20% manual effort for Knightsfin Estates' sales and support teams.",
-      ],
-      technologies: ["HTML/CSS", "Reactjs", "Nodejs", "Expressjs", "SQL"],
-      website: "#"
-    }
-  ];
-
-  // Internship experiences
-  const internshipExperiences = [
-    {
-      id: 2,
-      title: "Cybersecurity Engineer Intern",
-      company: "Cyient",
-      location: "Bengaluru",
-      duration: "Jul 2024 - Oct 2024",
-      type: "Internship",
-      description: [
-        "Assisted in creating a secure coding checklist for a C++ application to ensure compliance with best security practices","Automated Android OS patch identification by extracting data from the Android Security Bulletin, reducing outdated OS usage risk by 25–30%.",
-        "Developed a custom application that integrated Nmap, executed LinEnum scripts remotely, and included network pentesting tools, boosting testing efficiency by ~15%.",
-        "Researched and presented a comprehensive report on rail network security aligned with IEC 62443 standards."
-      ],
-      technologies: ["C++", "Python", "Nmap", "OSINT", "Linux", "IEC 62443"],
-      website: "#"
-    },
-    {
-      id: 3,
-      title: "Ethical Hacking Intern",
-      company: "Cyberdosti",
-      location: "Pune, Maharashtra",
-      duration: "May 2024 - July 2024",
-      type: "Internship",
-      description: [
-       "Learned and practiced web application penetration testing and network penetration testing methodologies.",
-       "Applied web and network pentesting skills on vulnerable environments like Metasploit's Table 2 machine and DVWA (Damn Vulnerable Web Application).",
-       "Created a Python project for encoding and decoding messages using the Base64 algorithm; code available on GitHub.",
-       "Gained hands-on experience identifying vulnerabilities and exploiting common security flaws in controlled lab environments."
-      ],
-      technologies: ["OWASP Top 10", "Web Security", "Network Security", "Linux", "Python"],
-      website: "#"
-    }
-  ];
-
   const customStyles = `
     .experience-section {
-      background-color: #111827;
       min-height: 100vh;
-      color: #ffffff;
+      padding: 6rem 1rem;
+      background: linear-gradient(180deg, rgba(4, 12, 10, 0.98), rgba(3, 8, 7, 0.98));
+      color: #f4fff8;
     }
-    
-    .section-header {
-      color: #60a5fa;
-      margin-right: 1rem;
+
+    .experience-shell {
+      max-width: 1100px;
+      margin: 0 auto;
     }
-    
-    .section-title {
-      color: #ffffff;
-      font-size: 2rem;
-      font-weight: bold;
+
+    .experience-kicker {
+      color: #8efdd1;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      margin-bottom: 1rem;
     }
-    
-    .section-divider {
-      height: 2px;
-      background-color: #374151;
-      flex: 1;
-      margin-left: 1.5rem;
+
+    .experience-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 360px;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      align-items: end;
     }
-    
-    .timeline-line {
+
+    .experience-title {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      margin-bottom: 0.8rem;
+    }
+
+    .experience-lead {
+      color: #a1bcb0;
+      line-height: 1.8;
+      max-width: 720px;
+    }
+
+    .experience-summary {
+      padding: 1.2rem;
+      border-radius: 1.2rem;
+      border: 1px solid rgba(0, 255, 163, 0.14);
+      background: linear-gradient(180deg, rgba(7, 23, 18, 0.92), rgba(4, 12, 10, 0.96));
+      color: #cae1d8;
+      line-height: 1.7;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 1.4rem;
+    }
+
+    .timeline::before {
+      content: "";
       position: absolute;
-      left: 2rem;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background-color: #374151;
+      left: 1rem;
+      top: 0.5rem;
+      bottom: 0.5rem;
+      width: 1px;
+      background: linear-gradient(180deg, rgba(0, 255, 163, 0.35), rgba(87, 184, 255, 0.15));
     }
-    
+
+    .timeline-item {
+      position: relative;
+      padding-left: 3rem;
+    }
+
     .timeline-dot {
       position: absolute;
-      left: 1.5rem;
-      width: 1rem;
-      height: 1rem;
-      background-color: #3b82f6;
+      left: 0.45rem;
+      top: 1.35rem;
+      width: 1.15rem;
+      height: 1.15rem;
       border-radius: 50%;
-      border: 4px solid #1f2937;
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      background: #00ffa3;
+      box-shadow: 0 0 0 6px rgba(0, 255, 163, 0.08);
     }
-    
+
     .experience-card {
-      background-color: #1f2937;
-      border: 1px solid #374151;
-      border-radius: 1rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      padding: 1.5rem;
+      border-radius: 1.4rem;
+      border: 1px solid rgba(0, 255, 163, 0.14);
+      background: linear-gradient(180deg, rgba(7, 23, 18, 0.92), rgba(4, 12, 10, 0.96));
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
     }
-    
-    .experience-card:hover {
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
-      border-color: rgba(59, 130, 246, 0.3);
-    }
-    
-    .experience-title {
-      color: #ffffff;
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-    }
-    
-    .company-name {
-      color: #60a5fa;
-      font-weight: 600;
-      font-size: 1.125rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    .type-badge {
-      background-color: #2563eb;
-      color: #dbeafe;
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      font-size: 0.875rem;
-      font-weight: 500;
-      display: inline-block;
-    }
-    
-    .meta-info {
-      color: #d1d5db;
-    }
-    
-    .meta-icon {
-      color: #60a5fa;
-      width: 1rem;
-      height: 1rem;
-      margin-right: 0.5rem;
-    }
-    
-    .description-list {
-      list-style: none;
-      padding: 0;
-    }
-    
-    .description-item {
+
+    .card-top {
       display: flex;
-      align-items: flex-start;
-      margin-bottom: 0.75rem;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      align-items: start;
     }
-    
-    .description-bullet {
-      width: 8px;
-      height: 8px;
-      background-color: #3b82f6;
-      border-radius: 50%;
-      margin-top: 0.5rem;
-      margin-right: 0.75rem;
-      flex-shrink: 0;
+
+    .experience-role {
+      font-size: 1.35rem;
+      color: #effff7;
+      margin-bottom: 0.35rem;
     }
-    
-    .description-text {
-      color: #d1d5db;
-      line-height: 1.625;
-    }
-    
-    .tech-section-title {
-      color: #60a5fa;
-      font-size: 0.875rem;
+
+    .experience-company {
+      color: #78ffd2;
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.75rem;
     }
-    
-    .tech-badge {
-      background-color: #374151;
-      color: #e5e7eb;
-      border: 1px solid #4b5563;
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      font-size: 0.875rem;
-      font-weight: 500;
-      margin-right: 0.5rem;
-      margin-bottom: 0.5rem;
-      display: inline-block;
-      transition: all 0.2s ease;
-    }
-    
-    .tech-badge:hover {
-      background-color: #2563eb;
-      color: #ffffff;
-    }
-    
-    .header-underline {
-      width: 6rem;
-      height: 4px;
-      background-color: #3b82f6;
-      margin: 0 auto 1.5rem auto;
-    }
-    
-    .header-description {
-      color: #d1d5db;
-      font-size: 1.25rem;
-    }
-    
-    .section-icon {
-      width: 2rem;
-      height: 2rem;
-      border-radius: 0.5rem;
-      display: flex;
+
+    .experience-badge {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      color: #ffffff;
-      font-weight: bold;
-      font-size: 0.875rem;
+      gap: 0.45rem;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(0, 255, 163, 0.1);
+      color: #b9ffdf;
+      border: 1px solid rgba(0, 255, 163, 0.16);
+      white-space: nowrap;
+      font-size: 0.9rem;
     }
-    
-    .ft-icon {
-      background-color: #2563eb;
+
+    .experience-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      color: #9eb8ad;
     }
-    
-    .in-icon {
-      background-color: #16a34a;
+
+    .meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
     }
-    
-    @media (max-width: 768px) {
-      .timeline-line,
+
+    .description-list {
+      margin: 0 0 1.2rem;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .description-list li {
+      color: #c3dbd1;
+      line-height: 1.75;
+      padding-left: 1.1rem;
+      position: relative;
+    }
+
+    .description-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.7rem;
+      width: 0.45rem;
+      height: 0.45rem;
+      border-radius: 50%;
+      background: #57b8ff;
+    }
+
+    .tech-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+
+    .tech-pill {
+      padding: 0.55rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(2, 9, 7, 0.85);
+      border: 1px solid rgba(0, 255, 163, 0.12);
+      color: #dcfff1;
+      font-size: 0.9rem;
+    }
+
+    @media screen and (max-width: 900px) {
+      .experience-header {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media screen and (max-width: 640px) {
+      .experience-section {
+        padding: 5rem 1rem;
+      }
+
+      .timeline::before {
+        display: none;
+      }
+
+      .timeline-item {
+        padding-left: 0;
+      }
+
       .timeline-dot {
         display: none;
       }
-      
-      .experience-card {
-        margin-left: 0 !important;
+
+      .card-top {
+        flex-direction: column;
       }
     }
   `;
 
-  const ExperienceSection = ({ title, experiences, iconType }) => (
-    <div className="mb-5" style={{ marginBottom: '4rem' }}>
-      <div className="d-flex align-items-center mb-4" style={{ marginBottom: '3rem' }}>
-        <div className="section-header">
-          <div className={`section-icon ${iconType === 'ft' ? 'ft-icon' : 'in-icon'}`}>
-            {iconType === 'ft' ? 'FT' : 'IN'}
-          </div>
-        </div>
-        <h3 className="section-title mb-0">{title}</h3>
-        <div className="section-divider"></div>
-      </div>
-
-      <div className="position-relative">
-        {/* Timeline line */}
-        <div className="timeline-line d-none d-md-block"></div>
-        
-        {experiences.map((exp, index) => (
-          <div key={exp.id} className="position-relative mb-4" style={{ marginBottom: '3rem' }}>
-            {/* Timeline dot */}
-            <div className="timeline-dot d-none d-md-block"></div>
-            
-            {/* Experience Card */}
-            <div className="experience-card p-4" style={{ marginLeft: '4rem', padding: '2rem' }}>
-              {/* Header */}
-              <div className="d-flex flex-column flex-md-row justify-content-between mb-3">
-                <div className="flex-grow-1">
-                  <h4 className="experience-title">
-                    {exp.title}
-                  </h4>
-                  <div className="d-flex align-items-center company-name">
-                    <span>{exp.company}</span>
-                    {exp.website !== "#" && (
-                      <ExternalLink className="ms-2" style={{ width: '1rem', height: '1rem' }} />
-                    )}
-                  </div>
-                </div>
-                <div className="d-flex flex-column align-items-md-end mt-3 mt-md-0">
-                  <span className="type-badge">
-                    {exp.type}
-                  </span>
-                </div>
-              </div>
-
-              {/* Meta Information */}
-              <div className="d-flex flex-column flex-sm-row gap-3 mb-4 meta-info">
-                <div className="d-flex align-items-center">
-                  <Calendar className="meta-icon" />
-                  <span className="fw-medium">{exp.duration}</span>
-                </div>
-                <div className="d-flex align-items-center">
-                  <MapPin className="meta-icon" />
-                  <span>{exp.location}</span>
-                </div>
-              </div>
-
-              {/* Description */}
-              <div className="mb-4">
-                <ul className="description-list">
-                  {exp.description.map((item, idx) => (
-                    <li key={idx} className="description-item">
-                      <div className="description-bullet"></div>
-                      <span className="description-text">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Technologies */}
-              <div>
-                <h5 className="tech-section-title">
-                  Technologies & Tools
-                </h5>
-                <div>
-                  {exp.technologies.map((tech, idx) => (
-                    <span key={idx} className="tech-badge">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-
   return (
     <>
       <style>{customStyles}</style>
-      <section className="experience-section py-5 px-3">
-        <div className="container" style={{ maxWidth: '1024px' }}>
-          {/* Header */}
-          <div className="text-center mb-5" style={{ marginBottom: '4rem' }}>
-            <h2 className="display-4 fw-bold text-white mb-3">
-              Professional Experience
-            </h2>
+      <section className="experience-section">
+        <div className="experience-shell">
+          <div className="experience-header">
+            <div>
+              <div className="experience-kicker">Career / Delivery</div>
+              <h2 className="experience-title">Professional Experience</h2>
+              <p className="experience-lead">
+                My work spans secure software delivery, application security,
+                and hands-on VAPT exposure, with a current focus on shipping
+                modern web products as a software developer.
+              </p>
+            </div>
+            <div className="experience-summary">
+              I approach each role as both a builder and a defender: ship
+              features, understand the attack surface, and reduce risk before
+              it becomes a production problem.
+            </div>
           </div>
 
-          {/* Full-time Experience Section */}
-          <ExperienceSection 
-            title="Full-time Experience" 
-            experiences={fullTimeExperiences}
-            iconType="ft"
-          />
+          <div className="timeline">
+            {experiences.map((experience) => (
+              <div key={experience.id} className="timeline-item">
+                <div className="timeline-dot"></div>
+                <div className="experience-card">
+                  <div className="card-top">
+                    <div>
+                      <h3 className="experience-role">{experience.title}</h3>
+                      <div className="experience-company">{experience.company}</div>
+                    </div>
+                    <div className="experience-badge">
+                      {experience.type === "Internship" ? (
+                        <ShieldCheck size={16} />
+                      ) : (
+                        <BriefcaseBusiness size={16} />
+                      )}
+                      {experience.type}
+                    </div>
+                  </div>
 
-          {/* Internships Section */}
-          <ExperienceSection 
-            title="Internships" 
-            experiences={internshipExperiences}
-            iconType="in"
-          />
+                  <div className="experience-meta">
+                    <div className="meta-item">
+                      <Calendar size={16} />
+                      <span>{experience.duration}</span>
+                    </div>
+                    <div className="meta-item">
+                      <MapPin size={16} />
+                      <span>{experience.location}</span>
+                    </div>
+                  </div>
+
+                  <ul className="description-list">
+                    {experience.description.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+
+                  <div className="tech-row">
+                    {experience.technologies.map((tech) => (
+                      <span key={tech} className="tech-pill">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </>

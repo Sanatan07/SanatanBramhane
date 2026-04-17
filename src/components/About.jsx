@@ -1,262 +1,248 @@
-import React, { useRef, useEffect } from 'react';
-import jdImg from '../assets/jd_img.jpg'
+import React, { useEffect, useRef } from "react";
+import { ShieldCheck, Code2, LockKeyhole, ServerCog } from "lucide-react";
+import jdImg from "../assets/jd_img.jpg";
+
+const profileCards = [
+  { label: "Role", value: "Security-Focused Software Engineer", icon: ShieldCheck },
+  { label: "Core Stack", value: "React, Next.js, Node.js, Express.js", icon: Code2 },
+  { label: "Data Layer", value: "SQL, PostgreSQL, MongoDB", icon: ServerCog },
+  { label: "Security Lens", value: "AppSec, API Security, VAPT", icon: LockKeyhole },
+];
 
 const About = () => {
   const aboutRef = useRef(null);
 
   useEffect(() => {
+    const element = aboutRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in');
+          entry.target.classList.add("animate-in");
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
-    if (aboutRef.current) {
-      observer.observe(aboutRef.current);
+    if (element) {
+      observer.observe(element);
     }
 
     return () => {
-      if (aboutRef.current) {
-        observer.unobserve(aboutRef.current);
+      if (element) {
+        observer.unobserve(element);
       }
     };
   }, []);
 
   const handleResumeClick = () => {
-    window.open('/Sanatan-Bramhane.pdf', '_blank');
+    window.open("/Sanatan-Bramhane.pdf", "_blank");
   };
 
   const customStyles = `
     .about-section {
-      background-color: #111827;
       min-height: 100vh;
-      color: #ffffff;
       padding: 6rem 1rem;
+      background:
+        radial-gradient(circle at 15% 15%, rgba(0, 255, 163, 0.08), transparent 22%),
+        linear-gradient(180deg, rgba(4, 12, 10, 0.92), rgba(3, 8, 7, 0.98));
+      color: #f4fff8;
     }
-    
-    .section-container {
+
+    .about-shell {
       max-width: 1200px;
       margin: 0 auto;
       opacity: 0;
       transform: translateY(50px);
       transition: all 0.8s ease;
     }
-    
-    .section-container.animate-in {
+
+    .about-shell.animate-in {
       opacity: 1;
       transform: translateY(0);
     }
-    
-    .section-title {
-      font-size: 2.5rem;
+
+    .section-kicker {
+      color: #8efdd1;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-title-main {
+      font-size: clamp(2.4rem, 4vw, 3.5rem);
+      line-height: 1.05;
+      margin-bottom: 1rem;
+      color: #f7fff9;
+    }
+
+    .section-lead {
+      max-width: 780px;
+      color: #9eb8ad;
+      line-height: 1.8;
       margin-bottom: 3rem;
-      position: relative;
-      display: inline-block;
-      color: #ffffff;
-      font-weight: bold;
     }
-    
-    .section-title:after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 60px;
-      height: 4px;
-      background: linear-gradient(45deg, #60a5fa, #8c9eff);
-    }
-    
-    .about-content {
+
+    .about-layout {
       display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 3rem;
-      align-items: stretch;
-      min-height: calc(100vh - 12rem - 3rem);
+      grid-template-columns: 340px minmax(0, 1fr);
+      gap: 2rem;
+      align-items: start;
     }
-    
-    .about-image {
-      display: flex;
-      justify-content: center;
-      align-items: stretch;
-      height: 100%;
+
+    .about-visual,
+    .about-panel {
+      border: 1px solid rgba(0, 255, 163, 0.14);
+      background: linear-gradient(180deg, rgba(7, 23, 18, 0.92), rgba(4, 12, 10, 0.96));
+      border-radius: 1.5rem;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
     }
-    
-    .image-placeholder {
-      width: 100%;
-      max-width: 350px;
-      height: 100%;
-      border-radius: 20px;
-      background: linear-gradient(45deg, #60a5fa, #8c9eff);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-      transition: all 0.3s ease;
+
+    .about-visual {
+      padding: 1.1rem;
+      position: sticky;
+      top: 6.5rem;
+    }
+
+    .image-frame {
+      border-radius: 1.1rem;
       overflow: hidden;
-      position: relative;
+      border: 1px solid rgba(87, 184, 255, 0.16);
+      aspect-ratio: 0.82;
+      background: #020605;
     }
-    
-    .image-placeholder img {
+
+    .image-frame img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center;
-      border-radius: 20px;
+      display: block;
     }
-    
-    .image-placeholder:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 25px 50px -12px rgba(96, 165, 250, 0.4);
-    }
-    
-    .about-text {
-      display: flex;
-      flex-direction: column;
-      height: fit-content;
-    }
-    
-    .about-text p {
-      margin-bottom: 1.5rem;
-      line-height: 1.8;
-      color: #d1d5db;
-      font-size: 1.1rem;
-    }
-    
-    .personal-info {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      margin: 2rem 0;
-      background: rgba(31, 41, 55, 0.5);
-      padding: 2rem;
+
+    .image-caption {
+      margin-top: 1rem;
+      padding: 0.95rem 1rem;
       border-radius: 1rem;
-      border: 1px solid #374151;
+      background: rgba(2, 9, 7, 0.85);
+      color: #b4d1c2;
+      line-height: 1.7;
+      font-size: 0.94rem;
     }
-    
-    .info-item {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
+
+    .about-panel {
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
     }
-    
-    .info-label {
-      font-weight: 600;
-      color: #60a5fa;
-      font-size: 0.9rem;
+
+    .about-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(0, 255, 163, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 163, 0.04) 1px, transparent 1px);
+      background-size: 30px 30px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), transparent 100%);
+      pointer-events: none;
+    }
+
+    .about-copy {
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-copy p {
+      color: #bfd8ce;
+      line-height: 1.85;
+      margin-bottom: 1.15rem;
+      font-size: 1.02rem;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .profile-card {
+      padding: 1rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(0, 255, 163, 0.12);
+      background: rgba(2, 10, 8, 0.78);
+    }
+
+    .profile-icon {
+      width: 2.2rem;
+      height: 2.2rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.8rem;
+      margin-bottom: 0.8rem;
+      color: #02110b;
+      background: linear-gradient(135deg, #00ffa3, #66d6ff);
+    }
+
+    .profile-label {
+      display: block;
+      color: #7ca996;
+      font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.35rem;
     }
-    
-    .info-value {
-      color: #ffffff;
-      font-size: 1.1rem;
-      font-weight: 500;
-    }
-    
-    .resume-button {
-      display: inline-block;
-      padding: 1rem 2rem;
-      background: linear-gradient(45deg, #60a5fa, #8c9eff);
-      color: #ffffff;
-      border: none;
-      border-radius: 0.5rem;
+
+    .profile-value {
+      color: #effff6;
+      line-height: 1.6;
       font-weight: 600;
-      font-size: 1rem;
+    }
+
+    .resume-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 1.5rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(0, 255, 163, 0.2);
+      background: linear-gradient(135deg, #00ffa3, #50e9ff);
+      color: #02110b;
+      font-weight: 700;
+      text-decoration: none;
       cursor: pointer;
       transition: all 0.3s ease;
-      text-decoration: none;
-      box-shadow: 0 4px 15px rgba(96, 165, 250, 0.3);
-      width: fit-content;
-      margin-top: auto;
+      box-shadow: 0 16px 35px rgba(0, 255, 163, 0.18);
     }
-    
+
     .resume-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(96, 165, 250, 0.5);
-      background: linear-gradient(45deg, #3b82f6, #6366f1);
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(0, 255, 163, 0.24);
     }
-    
-    .resume-button:active {
-      transform: translateY(-1px);
-    }
-    
-    /* Responsive Design */
-    @media screen and (max-width: 1024px) {
-      .about-content {
+
+    @media screen and (max-width: 960px) {
+      .about-layout {
         grid-template-columns: 1fr;
-        gap: 2rem;
       }
-      
-      .about-image {
-        margin-bottom: 2rem;
-        justify-content: center;
+
+      .about-visual {
         position: static;
       }
-      
-      .image-placeholder {
-        max-width: 280px;
+    }
+
+    @media screen and (max-width: 640px) {
+      .about-section {
+        padding: 5rem 1rem;
       }
-      
-      .personal-info {
+
+      .about-panel {
+        padding: 1.35rem;
+      }
+
+      .profile-grid {
         grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-    }
-    
-    @media screen and (max-width: 768px) {
-      .about-section {
-        padding: 5rem 1.5rem;
-      }
-      
-      .section-title {
-        font-size: 2rem;
-        text-align: center;
-      }
-      
-      .about-content {
-        gap: 2rem;
-      }
-      
-      .image-placeholder {
-        max-width: 250px;
-      }
-      
-      .about-text p {
-        font-size: 1rem;
-      }
-      
-      .personal-info {
-        padding: 1.5rem;
-      }
-      
-      .resume-button {
-        width: 100%;
-        text-align: center;
-      }
-    }
-    
-    @media screen and (max-width: 480px) {
-      .about-section {
-        padding: 4rem 1rem;
-      }
-      
-      .section-title {
-        font-size: 1.8rem;
-      }
-      
-      .image-placeholder {
-        max-width: 180px;
-      }
-      
-      .personal-info {
-        padding: 1rem;
-      }
-      
-      .info-item {
-        text-align: center;
       }
     }
   `;
@@ -265,48 +251,69 @@ const About = () => {
     <>
       <style>{customStyles}</style>
       <div className="about-section">
-        <div className="section-container" ref={aboutRef}>
-          <h2 className="section-title">About Me</h2>
-          <div className="about-content">
-            <div className="about-image">
-              <div className="image-placeholder">
+        <div className="about-shell" ref={aboutRef}>
+          <div className="section-kicker">Identity / Mission</div>
+          <h2 className="section-title-main">About Me</h2>
+          <p className="section-lead">
+            I build production software with a security-first mindset, combining
+            full-stack engineering with application security and VAPT experience.
+          </p>
+
+          <div className="about-layout">
+            <div className="about-visual">
+              <div className="image-frame">
                 <img src={jdImg} alt="Sanatan Bramhane" />
               </div>
-            </div>
-            <div className="about-text">
-              <p>
-               I'm a security-concious software engineer passionate about building and securing modern digital systems. I focus on product security, helping teams integrate security across the development lifecycle — from design to deployment.
-              </p>
-              <p>
-                My interest in security sparked during my final semester of engineering through an elective on IoT, where I discovered how vulnerable connected systems can be. That curiosity led me to explore web and mobile app security, diving into tools like Burp Suite, OWASP ZAP, Frida, and Metasploit to uncover and understand real-world vulnerabilities like IDOR, XSS, and insecure authentication.
-              </p>
-              <p>
-                I enjoy working at the intersection of DevSecOps and application security, using tools like Docker, AWS, Kubernetes, and Python to automate secure development and testing workflows.
-              </p>
-              <p>
-               When I’m not hunting bugs, you’ll find me hiking mountains, grinding in Valorant, or building passion projects that merge my love for web development and offensive security.
-              </p>
-              <div className="personal-info">
-                <div className="info-item">
-                  <span className="info-label">Name:</span>
-                  <span className="info-value">Sanatan Bramhane</span>
-                </div>
-                <div className="info-item">
-                  <span className="info-label">Email:</span>
-                  <span className="info-value">sanatan.bramhane@outlook.com</span>
-                </div>
-                <div className="info-item">
-                  <span className="info-label">Location:</span>
-                  <span className="info-value">Pune, Maharashtra</span>
-                </div>
-                <div className="info-item">
-                  <span className="info-label">Availability:</span>
-                  <span className="info-value">Open to opportunities</span>
-                </div>
+              <div className="image-caption">
+                Engineering secure user experiences, hardened APIs, and delivery
+                pipelines that balance speed with resilience.
               </div>
-              <button onClick={handleResumeClick} className="resume-button">
-                Download Resume
-              </button>
+            </div>
+
+            <div className="about-panel">
+              <div className="about-copy">
+                <p>
+                  I am a security-focused software engineer currently working as
+                  a software developer, building modern web applications across
+                  the frontend, backend, and API layers. My day-to-day stack
+                  includes React.js, Next.js, Node.js, Express.js, REST APIs,
+                  SQL, PostgreSQL, MongoDB, and Java.
+                </p>
+                <p>
+                  What makes my approach different is the security lens I bring
+                  into product development. I think about trust boundaries,
+                  authentication flows, input handling, API abuse cases, data
+                  exposure, and secure defaults while writing software, not as
+                  an afterthought after release.
+                </p>
+                <p>
+                  Alongside engineering, I have hands-on exposure to application
+                  security and VAPT workflows, including testing web
+                  applications, validating findings, and translating risks into
+                  practical fixes developers can ship with confidence.
+                </p>
+                <p>
+                  I enjoy working where software engineering meets AppSec:
+                  building useful systems, understanding how they can fail, and
+                  hardening them before attackers get a chance.
+                </p>
+
+                <div className="profile-grid">
+                  {profileCards.map(({ label, value, icon: Icon }) => (
+                    <div key={label} className="profile-card">
+                      <div className="profile-icon">
+                        <Icon size={18} />
+                      </div>
+                      <span className="profile-label">{label}</span>
+                      <div className="profile-value">{value}</div>
+                    </div>
+                  ))}
+                </div>
+
+                <button onClick={handleResumeClick} className="resume-button">
+                  Download Resume
+                </button>
+              </div>
             </div>
           </div>
         </div>

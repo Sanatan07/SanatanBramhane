@@ -1,5 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
+const navItems = [
+  { id: 'home', label: 'Home' },
+  { id: 'about', label: 'About' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'education', label: 'Education' },
+  { id: 'contact', label: 'Contact' },
+];
+
 const Navbar = ({ handleNavigation }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -57,16 +67,6 @@ const Navbar = ({ handleNavigation }) => {
     };
   }, [scrolled]);
 
-  const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'education', label: 'Education' },
-    { id: 'contact', label: 'Contact' },
-  ];
-
   const customStyles = `
     .navbar {
       position: fixed;
@@ -79,12 +79,12 @@ const Navbar = ({ handleNavigation }) => {
     }
     
     .navbar.scrolled {
-      background: rgba(17, 24, 39, 0.95);
+      background: rgba(3, 10, 8, 0.88);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       padding: 1rem 2rem;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-      border-bottom: 1px solid rgba(96, 165, 250, 0.1);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.28);
+      border-bottom: 1px solid rgba(0, 255, 163, 0.14);
     }
     
     .navbar-container {
@@ -104,7 +104,7 @@ const Navbar = ({ handleNavigation }) => {
     }
     
     .logo-text {
-      background: linear-gradient(135deg, #60a5fa 0%, #8c9eff 50%, #c084fc 100%);
+      background: linear-gradient(135deg, #e9fff6 0%, #78ffd2 45%, #57b8ff 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -136,7 +136,7 @@ const Navbar = ({ handleNavigation }) => {
     
     .nav-item a {
       text-decoration: none;
-      color: #ffffff;
+      color: #dffbf0;
       font-weight: 500;
       position: relative;
       padding: 0.5rem 1rem;
@@ -152,7 +152,7 @@ const Navbar = ({ handleNavigation }) => {
       left: 50%;
       width: 0;
       height: 2px;
-      background: linear-gradient(135deg, #60a5fa, #8c9eff);
+      background: linear-gradient(135deg, #00ffa3, #57b8ff);
       transition: all 0.3s ease;
       transform: translateX(-50%);
       border-radius: 2px;
@@ -164,14 +164,14 @@ const Navbar = ({ handleNavigation }) => {
     }
     
     .nav-item a:hover {
-      color: #60a5fa;
-      background: rgba(96, 165, 250, 0.1);
+      color: #8efdd1;
+      background: rgba(0, 255, 163, 0.08);
       transform: translateY(-2px);
     }
     
     .nav-item a.active {
-      color: #60a5fa;
-      background: rgba(96, 165, 250, 0.15);
+      color: #8efdd1;
+      background: rgba(0, 255, 163, 0.12);
     }
     
     .menu-icon {
@@ -214,7 +214,7 @@ const Navbar = ({ handleNavigation }) => {
     .hamburger.open span:nth-child(1) {
       top: 10px;
       transform: rotate(135deg);
-      background: #60a5fa;
+      background: #00ffa3;
     }
     
     .hamburger.open span:nth-child(2) {
@@ -225,7 +225,7 @@ const Navbar = ({ handleNavigation }) => {
     .hamburger.open span:nth-child(3) {
       top: 10px;
       transform: rotate(-135deg);
-      background: #60a5fa;
+      background: #00ffa3;
     }
     
     /* Mobile Styles */
@@ -240,7 +240,7 @@ const Navbar = ({ handleNavigation }) => {
         right: -100%;
         width: 70%;
         height: 100vh;
-        background: rgba(17, 24, 39, 0.98);
+        background: rgba(3, 10, 8, 0.97);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         flex-direction: column;
@@ -248,7 +248,7 @@ const Navbar = ({ handleNavigation }) => {
         align-items: center;
         padding: 2rem;
         transition: all 0.5s ease;
-        border-left: 1px solid rgba(96, 165, 250, 0.2);
+        border-left: 1px solid rgba(0, 255, 163, 0.18);
         gap: 1.5rem;
       }
       
@@ -267,19 +267,19 @@ const Navbar = ({ handleNavigation }) => {
         padding: 1rem 2rem;
         width: 100%;
         border-radius: 0.75rem;
-        background: rgba(31, 41, 55, 0.5);
-        border: 1px solid rgba(96, 165, 250, 0.2);
+        background: rgba(7, 25, 19, 0.72);
+        border: 1px solid rgba(0, 255, 163, 0.16);
       }
       
       .nav-item a:hover {
-        background: rgba(96, 165, 250, 0.2);
-        border-color: rgba(96, 165, 250, 0.5);
+        background: rgba(0, 255, 163, 0.14);
+        border-color: rgba(0, 255, 163, 0.4);
         transform: scale(1.05);
       }
       
       .nav-item a.active {
-        background: rgba(96, 165, 250, 0.25);
-        border-color: rgba(96, 165, 250, 0.7);
+        background: rgba(0, 255, 163, 0.18);
+        border-color: rgba(87, 184, 255, 0.45);
       }
       
       .navbar {
