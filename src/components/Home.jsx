@@ -2,10 +2,10 @@ import React, { useEffect, useRef } from "react";
 import { TypeAnimation } from "react-type-animation";
 
 const focusAreas = [
-  "Threat Modeling",
+  "Software Development",
   "Secure SDLC",
-  "API Security",
-  "VAPT Engagements",
+  "Application Security",
+  "DevsecOps Enablement",
 ];
 
 const metrics = [
