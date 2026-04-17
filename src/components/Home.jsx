@@ -9,7 +9,7 @@ const focusAreas = [
 ];
 
 const metrics = [
-  { label: "Focus", value: "AppSec + VAPT" },
+  { label: "Focus", value: "Development + AppSec" },
   { label: "Mode", value: "Build / Break / Harden" },
   { label: "Priority", value: "Shift-left Security" },
 ];
@@ -510,11 +510,11 @@ const Home = () => {
               />
             </div>
             <p className="description">
-              I design and ship software with an attacker&apos;s mindset. My work
-              sits at the intersection of engineering, application security, and
-              VAPT, where I audit code paths, test APIs, uncover weak trust
-              boundaries, and help teams harden products before issues reach
-              production.
+              I design and ship software with an attacker&apos;s mindset. My
+              work sits at the intersection of engineering, application
+              security, and VAPT, where I audit code paths, test APIs, uncover
+              weak trust boundaries, and help teams harden products before
+              issues reach production.
             </p>
             <div className="focus-grid">
               {focusAreas.map((item) => (
