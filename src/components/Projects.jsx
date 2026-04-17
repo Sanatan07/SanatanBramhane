@@ -15,7 +15,7 @@ const projects = [
     description:
       "MERN affiliate and dropshipping platform built to simplify product discovery, automate workflows, and support scalable e-commerce operations through responsive product dashboards and efficient data handling.",
     technologies: ["MERN"],
-    category: "engineering",
+    category: "development",
     live: "https://market-360-frontend-zeta.vercel.app/",
     icon: Workflow,
   },
@@ -25,7 +25,7 @@ const projects = [
     description:
       "Real-time chat application built with the MERN stack and Socket.io, featuring secure JWT-based authentication, online user tracking, responsive UI, and reliable client-server error handling.",
     technologies: ["MERN", "Redis", "PostgreSQL"],
-    category: "engineering",
+    category: "development",
     icon: Globe,
   },
   {
@@ -34,7 +34,7 @@ const projects = [
     description:
       "Security-themed personal portfolio built with React, blending product engineering presentation with an AppSec-inspired visual system.",
     technologies: ["React.js", "UI Engineering", "Component Design"],
-    category: "engineering",
+    category: "development",
     github: "https://github.com/Sanatan07/SanatanBramhane",
     live: "https://sanatan-bramhane.vercel.app/",
     icon: Globe,
