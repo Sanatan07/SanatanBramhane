@@ -1,71 +1,105 @@
+# Sanatan Bramhane Portfolio
 
-# Getting Started with Create React App
+A security-themed personal portfolio built to showcase software engineering work, application security experience, and VAPT-focused projects through an interactive React interface.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Tech Stack
 
-## Available Scripts
+### Core Frontend
 
-In the project directory, you can run:
+- React 19 for building the component-based user interface
+- React DOM for rendering the app in the browser
+- Create React App (`react-scripts`) for the development and build setup
 
-### `npm start`
+### Styling and UI
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Custom CSS for the portfolio's visual identity and section-specific styling
+- Bootstrap 5 for layout utilities and responsive UI support
+- React Bootstrap for Bootstrap-based React components
+- Lucide React and React Icons for modern iconography
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Animations and Visual Effects
 
-### `npm test`
+- `react-type-animation` for animated hero text
+- `react-snowfall` for the snowfall overlay effect
+- Intersection Observer API for section reveal animations
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 3D and Interactive Background
 
-### `npm run build`
+- Three.js as the 3D rendering engine
+- `@react-three/fiber` to use Three.js in React
+- `@react-three/drei` for helpers like `Stars` and `OrbitControls`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Contact and Integrations
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- EmailJS (`@emailjs/browser`) for the contact form email workflow
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Tooling
 
-### `npm run eject`
+- Tailwind CSS, PostCSS, and Autoprefixer are installed in the project tooling setup
+- Testing Library and Jest DOM are included for frontend testing support
+- Web Vitals for performance measurement
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Project Highlights
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Interactive single-page portfolio with dedicated sections for home, about, projects, skills, experience, education, and contact
+- 3D animated background and motion-enhanced visual presentation
+- Responsive layout for desktop and mobile screens
+- Contact form integration using EmailJS
+- Security-oriented branding and content presentation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Folder Structure
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```text
+src/
+  App.js
+  index.js
+  components/
+  assets/
+public/
+  index.html
+  manifest.json
+```
 
-## Learn More
+## Getting Started
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Prerequisites
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Node.js
+- npm
 
-### Code Splitting
+### Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm install
+```
 
-### Analyzing the Bundle Size
+### Run in Development
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+npm start
+```
 
-### Making a Progressive Web App
+The app will run locally at `http://localhost:3000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Build for Production
 
-### Advanced Configuration
+```bash
+npm run build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Run Tests
 
-### Deployment
+```bash
+npm test
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Notes
 
-### `npm run build` fails to minify
+- The contact form uses EmailJS credentials configured in the source code.
+- Bootstrap styles are imported globally in the app entry flow.
+- The project currently uses Create React App as its build foundation.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Author
+
+Sanatan Bramhane  
+GitHub: [Sanatan07](https://github.com/Sanatan07)
