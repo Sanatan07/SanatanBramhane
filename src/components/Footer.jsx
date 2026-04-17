@@ -68,6 +68,7 @@ const Footer = () => {
           <div className="footer-links">
             <a href="https://github.com/Sanatan07" target="_blank" rel="noreferrer" className="footer-link">GitHub</a>
             <a href="https://www.linkedin.com/in/sanatanbramhane/" target="_blank" rel="noreferrer" className="footer-link">LinkedIn</a>
+            <a href="https://medium.com/@sanatan.bramhane" target="_blank" rel="noreferrer" className="footer-link">Medium</a>
             <a href="https://x.com/Sanatan781" target="_blank" rel="noreferrer" className="footer-link">Twitter</a>
             <a href="https://tryhackme.com/p/Sanatan" target="_blank" rel="noreferrer" className="footer-link">TryHackMe</a>
           </div>

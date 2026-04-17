@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { Mail, Phone, MapPin, Github, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin, Github, Linkedin, Twitter, BookOpenText } from "lucide-react";
 
 const Contact = () => {
   const contactRef = useRef(null);
@@ -319,6 +319,24 @@ const Contact = () => {
                 >
                   <Linkedin size={16} />
                   LinkedIn
+                </a>
+                <a
+                  href="https://medium.com/@sanatan.bramhane"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="social-link"
+                >
+                  <BookOpenText size={16} />
+                  Medium
+                </a>
+                <a
+                  href="https://x.com/Sanatan781"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="social-link"
+                >
+                  <Twitter size={16} />
+                  Twitter
                 </a>
               </div>
             </div>
